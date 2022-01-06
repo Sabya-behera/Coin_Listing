@@ -26,7 +26,7 @@ public class CoinAddressService {
 
     public CoinAddress getCoinAddressById(Long id)
     {
-        return coinAddressRepo.getById(id);
+        return coinAddressRepo.findById(id).get();
     }
 
     public CoinAddress updateCoinAddress(Long id,CoinAddress coinAddress)
@@ -37,5 +37,14 @@ public class CoinAddressService {
         coinAddressRepo.save(coinAddress1);
         return coinAddress1;
     }
+    public List<CoinAddress> fetchLeftJoin()
+    {
+        return coinAddressRepo.fetchLeftJoin();
+    }
+
+    public List<CoinAddress> fetchRightJoin() {
+        return coinAddressRepo.fetchRightJoin();
+    }
+
 
 }

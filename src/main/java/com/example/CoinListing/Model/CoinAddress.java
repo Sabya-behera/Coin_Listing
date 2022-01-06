@@ -3,6 +3,7 @@ package com.example.CoinListing.Model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "C_Address")
@@ -10,6 +11,7 @@ public class CoinAddress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message = "Enter you address")
     private String address;
     private enum status{InActive,Active};
     @JsonBackReference

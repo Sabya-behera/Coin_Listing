@@ -3,6 +3,10 @@ package com.example.CoinListing.Model;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -12,8 +16,13 @@ public class Coin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Size(min = 2,max = 4,message = "The name should be at least 2 letters and between 4")
+    @NotBlank(message = "No blank spaces allowed")
     private String shortname;
+    @NotEmpty(message = "Enter properly")
+    @Size(min = 4 ,message = "enter a minimum of 4 characters")
     private String fullname;
+    @NotNull
     private String icon;
     @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "coin")

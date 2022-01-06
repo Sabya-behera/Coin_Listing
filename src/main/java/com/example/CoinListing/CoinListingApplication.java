@@ -11,5 +11,8 @@ public class CoinListingApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CoinListingApplication.class, args);
 		LOGGER.info("Simple log statement with inputs {}, {} and {}", 1,2,3);
+		LOGGER.error("Message logged at ERROR level");
+		LOGGER.warn("Message logged at WARN level");
+		LOGGER.debug("Message logged at DEBUG level");
 	}
 }
